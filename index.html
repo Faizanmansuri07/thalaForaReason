@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+       
+    </style>
+     <script>
+        function thalaCheck() {
+          let inputVal = document.getElementById("input").value;
+          let audio1 = document.getElementById("corect");
+          let audio2 = document.getElementById("incorrect");
+          let thala  = document.getElementById("thala");
+          let masti= document.getElementById("masti");
+          if(inputVal == 1) {
+            masti.play();
+            audio2.pause();
+            audio1.pause();
+            thala.textContent = `Le bkl`;
+          }
+          else {
+          if(!isNaN(inputVal)) {
+            let sum=0;
+
+            for(let i=0;i<inputVal.length;i++) {
+              sum +=parseInt(inputVal[i]);
+
+            }
+            if(sum === 7) {
+              thala.textContent = `Thala for a reason`
+              audio1.play();
+              audio2.pause();
+              masti.pause();
+              
+            } else {
+              audio2.play();
+              audio1.pause();
+              masti.pause();
+              thala.textContent = ` No Thala for You`
+            }
+          }
+        }
+        if(isNaN(inputVal)) {
+            if(inputVal.length ==7) {
+              audio1.play();
+              audio2.pause();
+              thala.textContent = `Thala for a reason`
+            } else {
+              audio2.play();
+              audio1.pause();
+              thala.textContent = ` No Thala for You`
+            }
+        }
+      }
+     </script>
+</head>
+
+<body>
+            <p>Behind Everything , There is a Reason</p>
+            <p>Thala For a Reason checker</p>
+            <div class="container">
+          
+                <div class="first">
+                      <input type="text" id="input" placeholder="Enter anything" onclick="csl();">
+                      <button class="check" onclick="thalaCheck();">Check</button>
+                    </div>
+                    <audio id="corect" loop>
+                      <source src="bolejokoya_bca9c476.mp3">
+                    </audio>
+                    <audio id="incorrect" loop>
+                      <source src="zyeqd.mp3">
+                    </audio>
+                    <audio id="masti" loop>
+                      <source src="naughty-hora-bkl-hai-naughty-hora-meme-template-hai-notty-hora-made-with-Voicemod.mp3">
+
+                    </audio>
+                    <h4 id="thala"></h4>
+                    <p id="pa">Koi bkl hi hoga jo 1 type karega</p>
+                 
+            </div>
+</body>
+</html>
